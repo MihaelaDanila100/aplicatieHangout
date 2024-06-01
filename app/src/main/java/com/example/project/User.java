@@ -1,5 +1,10 @@
 package com.example.project;
+import android.widget.ImageView;
 public class User {
+
+    ImageView img;
+
+
     private String name;
     private int age;
     private String location;
@@ -14,7 +19,12 @@ public class User {
         this.gender = gender;
         this.hobbies = hobbies;
         this.job = job;
+
+
+
+
     }
+
 
     public String getName() { return name; }
     public int getAge() { return age; }
@@ -22,4 +32,12 @@ public class User {
     public String getGender() { return gender; }
     public String getHobbies() { return hobbies; }
     public String getJob() { return job; }
+
+
+
+
+
+
+
+
 }

@@ -28,6 +28,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             jobTextView = itemView.findViewById(R.id.jobTextView);
             messageButton = itemView.findViewById(R.id.messageButton);
             reportButton = itemView.findViewById(R.id.reportButton);
+
+
         }
     }
 
@@ -39,6 +41,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     public UserViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.card_item, parent, false);
+
+
         return new UserViewHolder(view);
     }
 
@@ -51,7 +55,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         holder.genderTextView.setText(user.getGender());
         holder.hobbiesTextView.setText(user.getHobbies());
         holder.jobTextView.setText(user.getJob());
+
     }
+
 
     @Override
     public int getItemCount() {

@@ -1,6 +1,7 @@
 package com.example.project;
 
 import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,6 +12,8 @@ import java.util.List;
 
 public class UsersPage extends AppCompatActivity {
 
+
+
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -19,6 +22,8 @@ public class UsersPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users_page);
+
+
 
         List<User> users = new ArrayList<>();
         users.add(new User("Ana", 28, "Bucuresti", "Feminin", "Calatorii, Fotografie", "Marketing Manager"));
@@ -39,5 +44,9 @@ public class UsersPage extends AppCompatActivity {
 
         adapter = new UserAdapter(users);
         recyclerView.setAdapter(adapter);
+
+
+
+
     }
 }
