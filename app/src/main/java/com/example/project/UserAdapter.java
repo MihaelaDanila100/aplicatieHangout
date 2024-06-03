@@ -4,19 +4,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.appcompat.app.AlertDialog;
+
+import android.content.Context;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.project.R;
-import com.example.project.User;
 
 import java.util.List;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
 
     private List<User> userList;
+    private Context context;
 
     public static class UserViewHolder extends RecyclerView.ViewHolder {
         public TextView nameTextView, ageTextView, locationTextView, genderTextView, hobbiesTextView, jobTextView;
@@ -37,7 +40,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         }
     }
 
-    public UserAdapter(List<User> userList) {
+    public UserAdapter(Context context, List<User> userList) {
+        this.context = context; // Initialize context
         this.userList = userList;
     }
 
@@ -65,6 +69,31 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         } else {
             holder.genderImageView.setImageResource(R.drawable.male_symbol);
         }
+
+        holder.messageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Inflate the custom layout
+                LayoutInflater inflater = LayoutInflater.from(context);
+                View dialogView = inflater.inflate(R.layout.dialog_send_message, null);
+
+                // Find the EditText in the custom layout
+                EditText messageEditText = dialogView.findViewById(R.id.messageEditText);
+
+                // Create the AlertDialog
+                new AlertDialog.Builder(context)
+                        .setTitle("Send Message")
+                        .setView(dialogView)
+                        .setPositiveButton("Send", (dialog, which) -> {
+                            // Handle the send button click
+                            String message = messageEditText.getText().toString();
+                            // For demonstration, just show a toast with the message
+                            Toast.makeText(context, "Message: " + message, Toast.LENGTH_SHORT).show();
+                        })
+                        .setNegativeButton("Cancel", null)
+                        .show();
+            }
+        });
     }
 
     @Override
