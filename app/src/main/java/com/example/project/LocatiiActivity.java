@@ -37,6 +37,7 @@ public class LocatiiActivity  extends AppCompatActivity {
        Button report5;
        Button report6;
        Button people;
+       BottomNavigationView nav;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
 
@@ -54,7 +55,8 @@ public class LocatiiActivity  extends AppCompatActivity {
             report4 = findViewById(R.id.reportButton5);
             report5 = findViewById(R.id.reportButton6);
             report6 = findViewById(R.id.reportButton7);
-            people = findViewById(R.id.buttonPeople);
+            nav =findViewById(R.id.bottomNavigationView);
+           //people = findViewById(R.id.buttonPeople);
             interes1.setOnClickListener(new View.OnClickListener()
             {
                 @Override
@@ -153,15 +155,26 @@ public class LocatiiActivity  extends AppCompatActivity {
                     Toast.makeText(LocatiiActivity.this, "Ati raportat!", Toast.LENGTH_SHORT).show();
                 }
             });
-
-            people.setOnClickListener(new View.OnClickListener()
-            {
+            nav.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
                 @Override
-                public void onClick(View view)
-                {
-                    startActivity(new Intent(getApplicationContext(), UsersPage.class));
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    switch (item.getItemId())
+                    {
+                        case R.id.people:
+
+                            startActivity(new Intent(getApplicationContext(), UsersPage.class));
+                            break;
+
+                        case R.id.menu:
+
+                            startActivity(new Intent(getApplicationContext(), MenuActivity.class));
+                            break;
+
+                    }
+                    return true;
                 }
             });
+
 
 
 

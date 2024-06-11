@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Project"
         tools:targetApi="31" >
         <activity
-            android:name=".UsersPage"
+            android:name=".LogoActivity"
             android:exported="true"
             android:theme="@style/Theme.Project">
             <intent-filter>
@@ -22,24 +22,36 @@
             </intent-filter>
         </activity>
          <activity
-            android:name=".LocatiiActivity"
-            android:exported="true"
-            android:theme="@style/Theme.Project">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:name=".LocatiiActivity">
+
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:theme="@style/Theme.Project" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:name=".MainActivity">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+
+        <activity
+            android:name=".UsersPage">
+
+        </activity>
+
+        <activity
+            android:name=".LoginActivity"
+            >
+        </activity>
+
+        <activity
+            android:name=".RegisterActivity" >
+        </activity>
+        <activity
+            android:name=".OptionActivity">
+        </activity>
+        <activity
+            android:name=".MenuActivity">
+        </activity>
+
+
+
     </application>
 
 </manifest>
